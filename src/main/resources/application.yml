@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: bup-appointment-service
+  data:
+    mongodb:
+      uri: mongodb://r00t:bup@localhost:27017/bup-appointment

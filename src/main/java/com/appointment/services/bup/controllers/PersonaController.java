@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("${appointment.bup}")
-@Api(value = "Persona", description = "Controller que administra todas las operaciones de las personas")
+@RequestMapping("${bup.appointment}")
+//@Api(value = "Persona", description = "Controller que administra todas las operaciones de las personas")
 public class PersonaController {
 
     private final PersonaService personaService;
