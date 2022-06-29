@@ -1,0 +1,20 @@
+version: '2'
+services:
+  databese:
+    image: 'mongo'
+    container_name: 'container-bup-appointment'
+    environment:
+      - MONGO_INITDB_DATABASE=bup-appointment
+      - MONGO_INITDB_ROOT_USERNAME=r00t
+      - MONGO_INITDB_ROOT_PASSWORD=bup
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017:27017'
+  #bup:
+   # image: com.appointment.services/bup:0.0.1-SNAPSHOT
+    #ports:
+     # - 8081:8080
+    #depends_on:
+     # - databese
