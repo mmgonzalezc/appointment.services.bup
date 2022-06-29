@@ -11,10 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -34,8 +31,18 @@ public class PersonaController {
     })
     @PostMapping("${savePersona}")
     public ResponseEntity<ResponseApi> savePersona(@RequestBody Persona persona) {
-        log.info("Save usuario ...");
+        log.info("Guardando registro usuario ...");
         Persona savePersona = personaService.savePersona(persona);
         return new ResponseEntity<>(new ResponseApi(HttpStatus.CREATED.value(), "Operacion exitosa", savePersona), HttpStatus.CREATED);
+    }
+    /**
+     * Valida si es invitado
+     */
+    @GetMapping("${findPersonaByCelular}")
+    public ResponseEntity<ResponseApi> validaInvitado(@PathVariable String celular){
+    log.info("Buscando invitado");
+    log.info("Ir a consultar bd para ir a ver si fue invitado");
+    return new ResponseEntity<>(new ResponseApi(HttpStatus.OK.value(), "Operacion exitosa", savePersona), HttpStatus.CREATED);
+
     }
 }
