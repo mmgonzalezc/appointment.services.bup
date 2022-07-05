@@ -1,12 +1,12 @@
-version: '2'
+version: '3'
 services:
-  databese:
-    image: 'mongo'
-    container_name: 'container-bup-appointment'
+  mongodb:
+    image: mongo:latest
+    container_name: 'mongodb-container'
     environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=secret
       - MONGO_INITDB_DATABASE=bup-appointment
-      - MONGO_INITDB_ROOT_USERNAME=r00t
-      - MONGO_INITDB_ROOT_PASSWORD=bup
     volumes:
       - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
       - ./mongo-volume:/data/db

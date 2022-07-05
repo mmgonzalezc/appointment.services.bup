@@ -5,4 +5,4 @@ spring:
     name: bup-appointment-service
   data:
     mongodb:
-      uri: mongodb://r00t:bup@localhost:27017/bup-appointment
+      uri: mongodb://admin:secret@localhost:27017/admin?authSource=admin
